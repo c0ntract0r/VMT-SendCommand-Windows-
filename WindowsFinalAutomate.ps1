@@ -384,7 +384,7 @@ else
     exit
     };'`
     + "New-NetIPAddress -InterfaceAlias '$AdapterName' -IPAddress $EnterIp -PrefixLength $EnterCIDR -DefaultGateway $DefaultGate;" `
-    + "Set-DnsClientServerAddress -InterfaceAlias 'Ethernet0' -ServerAddresses ('$DNS1', '$DNS2');" `
+    + "Set-DnsClientServerAddress -InterfaceAlias '$AdapterName' -ServerAddresses ('$DNS1', '$DNS2');" `
     + "Start-Sleep -Seconds 15;" `
     + "Add-Computer -DomainName '$Domain' -newname $ComputerName -Credential $G_Cred -Restart"
 
