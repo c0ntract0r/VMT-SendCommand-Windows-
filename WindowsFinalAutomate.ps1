@@ -346,6 +346,10 @@ Write-LogInfo -LogPath $logPath -Message "[INFO]Setting network adapter with nam
 Start-VM -VM $VMname -Confirm:$false
 Start-Sleep -Seconds 30;
 
+# Installing VM tools on the newly created virtual machine
+Get-VM -Name $VMname | Update-Tools -NoReboot
+Write-LogInfo -LogPath $logPath -Message "[INFO]Updating VM tools for $VMname." -TimeStamp
+
 # Script for elevating powershell rights for scripts running
 $EnterIp = Read-Host "Enter IP address to set"
 $EnterCIDR = Read-Host "Enter Subnet mask as CIDR notation"
@@ -388,10 +392,6 @@ else
     + "Start-Sleep -Seconds 15;" `
     + "Add-Computer -DomainName '$Domain' -newname $ComputerName -Credential $G_Cred -Restart"
 
-
-# Installing VM tools on the newly created virtual machine
-Get-VM -Name $VMname | Update-Tools -NoReboot
-Write-LogInfo -LogPath $logPath -Message "[INFO]Updating VM tools for $VMname." -TimeStamp
 
 # Running the script for changing IP address and setting DNS
 Write-LogInfo -LogPath $logPath -Message "[INFO]Sending the main script to virtual machine."
