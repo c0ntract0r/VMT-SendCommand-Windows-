@@ -15,3 +15,7 @@ the script, session is closed.
 * [VMware PowerCLI](https://developer.vmware.com/web/tool/vmware-powercli)
 * Vsphere user with the necessary permissions
 * [Trusted root certificates installation](https://vdc-download.vmware.com/vmwb-repository/dcr-public/bc4fa31a-40ac-4aa9-a6a1-7171d1fff7f4/740990ee-4d65-4627-a9d4-0f046cb78aec/doc/GUID-9AF8E0A7-1A64-4839-AB97-2F18D8ECB9FE.html)
+
+## Features
+* Logging
+* Basic Error handling
